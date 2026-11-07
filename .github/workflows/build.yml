@@ -2,7 +2,7 @@ name: build
 on: workflow_dispatch   # run it manually from the Actions tab
 
 jobs:
-    android:
+  android:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
