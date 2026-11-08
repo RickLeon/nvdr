@@ -2,13 +2,12 @@ name: build
 on: workflow_dispatch   # run it manually from the Actions tab
 
 jobs:
-    android:
+  android:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v5
         with: { distribution: temurin, java-version: 17 }
-      - uses: android-actions/setup-android@v3
       - run: chmod +x android/gradlew
       - run: cd android && ./gradlew assembleDebug
       - uses: actions/upload-artifact@v4
