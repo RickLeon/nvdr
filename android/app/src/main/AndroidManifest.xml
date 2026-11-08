@@ -3,6 +3,15 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <!-- Android 11+ package visibility: without this, TextToSpeech cannot see or
+         bind to third-party engines (eSpeak, Samsung, RHVoice...) and silently
+         falls back to the Google engine. -->
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.TTS_SERVICE" />
+        </intent>
+    </queries>
+
     <!-- A physical (Bluetooth/USB) keyboard is the whole point. Declared so the
          Play Store lists the app for keyboard-equipped devices, but not required. -->
     <uses-feature
